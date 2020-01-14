@@ -125,12 +125,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="elemnt_manager.cpp" />
+    <ClCompile Include="element_manager.cpp" />
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="fire_element.cpp" />
     <ClCompile Include="game_manager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="water_element.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="element_manager.h" />
@@ -138,6 +139,7 @@
     <ClInclude Include="fire_element.h" />
     <ClInclude Include="game_manager.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="water_eleement.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

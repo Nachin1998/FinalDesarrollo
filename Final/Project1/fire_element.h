@@ -13,6 +13,7 @@ namespace Fire {
 		bool active;
 		Color color;
 	};
+
 	extern Aim aim;
 
 	void init();

@@ -2,7 +2,6 @@
 
 #include "player.h"
 #include "element_manager.h"
-#include "fire_element.h"
 
 #include "enemy.h"
 
@@ -45,7 +44,6 @@ namespace GameManager {
 		//gameOver::init();
 		Player::init();
 		ElementManager::init();
-		Fire::init();
 
 		Enemy::init();
 		
@@ -65,7 +63,6 @@ namespace GameManager {
 		case Game:
 			Player::update();
 			ElementManager::update();
-			Fire::update();
 
 			Enemy::update();
 			//gameplay::update();
@@ -90,7 +87,6 @@ namespace GameManager {
 		case Game:
 			Player::draw();
 			ElementManager::draw();
-			Fire::draw();
 
 			Enemy::draw();
 			break;

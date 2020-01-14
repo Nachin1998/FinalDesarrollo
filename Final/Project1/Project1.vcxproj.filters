@@ -28,7 +28,10 @@
     <ClCompile Include="fire_element.cpp">
       <Filter>elements</Filter>
     </ClCompile>
-    <ClCompile Include="elemnt_manager.cpp">
+    <ClCompile Include="element_manager.cpp">
+      <Filter>elements</Filter>
+    </ClCompile>
+    <ClCompile Include="water_element.cpp">
       <Filter>elements</Filter>
     </ClCompile>
   </ItemGroup>
@@ -46,6 +49,9 @@
       <Filter>elements</Filter>
     </ClInclude>
     <ClInclude Include="element_manager.h">
+      <Filter>elements</Filter>
+    </ClInclude>
+    <ClInclude Include="water_eleement.h">
       <Filter>elements</Filter>
     </ClInclude>
   </ItemGroup>
