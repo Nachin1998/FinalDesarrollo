@@ -7,11 +7,12 @@ namespace MyGame {
 
 		struct Player {
 			Rectangle rec;
+			float movementSpeed;
 			bool alive;
 			Color color;
 		};
 
-		extern Player ship;
+		extern Player avatar;
 
 		void init();
 		void update();
