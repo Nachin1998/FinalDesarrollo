@@ -4,20 +4,20 @@
 #include "raylib.h"
 
 namespace MyGame {
-	namespace GameManager {
-		extern int screenWidth;
-		extern int screenHeight;
+namespace GameManager {
+	extern int screenWidth;
+	extern int screenHeight;
 
-		enum ActualScene {
-			Menu,
-			Game,
-			Gameover
-		};
+	enum ActualScene {
+		Menu,
+		Game,
+		Gameover
+	};
 
-		extern ActualScene actualScene;
+	extern ActualScene actualScene;
 
-		void runGame();
-	}
+	void runGame();
+}
 }
 #endif // !GAME_H
 

@@ -2,22 +2,23 @@
 #define PLAYER_H
 
 #include "raylib.h"
+
 namespace MyGame {
-	namespace Player {
+namespace Player {
 
-		struct Player {
-			Rectangle rec;
-			float movementSpeed;
-			bool alive;
-			Color color;
-		};
+	struct Player {
+		Rectangle rec;
+		float movementSpeed;
+		bool alive;
+		Color color;
+	};
 
-		extern Player avatar;
+	extern Player avatar;
 
-		void init();
-		void update();
-		void draw();
-	}
+	void init();
+	void update();
+	void draw();
+}
 }
 
 #endif
