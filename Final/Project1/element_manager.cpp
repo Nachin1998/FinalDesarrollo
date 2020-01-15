@@ -13,6 +13,7 @@ using namespace Player;
 	static void actualElementUpdate();
 
 	ElementSelection actualElement = Air;
+	Ability currentAbility = none;
 
 	void init() {
 		Fire::init();
@@ -22,24 +23,28 @@ using namespace Player;
 		
 		if (IsKeyPressed(KEY_ONE))
 		{
+			currentAbility = none;
 			avatar.color = BLUE;
 			actualElement = Water;
 		}
 
 		if (IsKeyPressed(KEY_TWO))
 		{
+			currentAbility = none;
 			avatar.color = BROWN;
 			actualElement = Earth;
 		}
 
 		if (IsKeyPressed(KEY_THREE))
 		{
+			currentAbility = none;
 			avatar.color = RED;
 			actualElement = Fire;
 		}
 
 		if (IsKeyPressed(KEY_FOUR))
 		{
+			currentAbility = none;
 			avatar.color = RAYWHITE;
 			actualElement = Air;
 		}

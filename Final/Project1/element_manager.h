@@ -11,7 +11,16 @@ namespace ElementManager {
 		Air
 	};
 
+	enum Ability {
+		none,
+		first,
+		second,
+		third
+	};
+
+
 	extern ElementSelection actualElement;
+	extern Ability currentAbility;
 
 	void init();
 	void update();
