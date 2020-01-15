@@ -6,16 +6,6 @@
 namespace MyGame{
 namespace Fire {
 
-	struct Aim {
-		Vector2 startingPoint;
-		Vector2 aimingPoint;
-		float thick;
-		bool active;
-		Color color;
-	};
-
-	extern Aim aim;
-
 	void init();
 	void update();
 	void draw();

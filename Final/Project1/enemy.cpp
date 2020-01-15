@@ -6,7 +6,7 @@
 namespace MyGame {
 namespace Enemy {
 
-	Enemy obstacles[maxObst];
+	/*Enemy obstacles[maxObst];
 
 	static float obstacleSpeed = 200.0f;
 
@@ -31,6 +31,6 @@ namespace Enemy {
 
 	void draw() {
 		DrawRectangleRec(obstacles[maxObst].rec, obstacles[maxObst].color);
-	}
+	}*/
 }
 }

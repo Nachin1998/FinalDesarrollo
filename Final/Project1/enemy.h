@@ -5,7 +5,7 @@
 namespace MyGame {
 	namespace Enemy {
 
-		struct Enemy {
+	/*	struct Enemy {
 			Rectangle rec;
 			bool alive;
 			Color color;
@@ -16,7 +16,7 @@ namespace MyGame {
 
 		void init();
 		void update();
-		void draw();
+		void draw();*/
 	}
 }
 

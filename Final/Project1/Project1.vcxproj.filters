@@ -51,7 +51,7 @@
     <ClInclude Include="element_manager.h">
       <Filter>elements</Filter>
     </ClInclude>
-    <ClInclude Include="water_eleement.h">
+    <ClInclude Include="water_element.h">
       <Filter>elements</Filter>
     </ClInclude>
   </ItemGroup>

@@ -39,13 +39,15 @@ namespace GameManager {
 
 		//bgMusic = LoadMusicStream("res/Music/pongSong.ogg");
 
+		SetExitKey(KEY_F4);
+
 		//menu::init();
 		//gameplay::init();
 		//gameOver::init();
 		Player::init();
 		ElementManager::init();
 
-		Enemy::init();
+		//Enemy::init();
 		
 		//PlayMusicStream(bgMusic);
 		//SetMusicVolume(bgMusic, 1.0f);
@@ -64,7 +66,7 @@ namespace GameManager {
 			Player::update();
 			ElementManager::update();
 
-			Enemy::update();
+			//Enemy::update();
 			//gameplay::update();
 			break;
 		case Gameover:
@@ -88,7 +90,7 @@ namespace GameManager {
 			Player::draw();
 			ElementManager::draw();
 
-			Enemy::draw();
+			//Enemy::draw();
 			break;
 		case Gameover:
 			//gameOver::draw();
