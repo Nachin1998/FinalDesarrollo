@@ -1,9 +1,14 @@
 #include "player.h"
 
+#include <math.h>
+
 namespace MyGame {
 namespace Player {
 
 	Player avatar;
+	Vector2 rotationDirection;
+	Vector2 mousePosition = GetMousePosition();
+	static float rotationAngle = 0.0f;
 	
 	void init() {
 
@@ -25,6 +30,13 @@ namespace Player {
 		{
 			avatar.rec.x -= avatar.movementSpeed * GetFrameTime();
 		}
+
+		rotationDirection.x = mousePosition.x - avatar.rec.x;
+		rotationDirection.y = mousePosition.y - avatar.rec.y;
+
+		rotationAngle = atan2(rotationDirection.y, rotationDirection.x) + 1.57f;
+
+		avatar.rotation = rotationAngle;
 	}
 
 	void draw() {

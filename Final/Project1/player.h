@@ -9,6 +9,7 @@ namespace Player {
 	struct Player {
 		Rectangle rec;
 		float movementSpeed;
+		float rotation;
 		bool alive;
 		Color color;
 	};

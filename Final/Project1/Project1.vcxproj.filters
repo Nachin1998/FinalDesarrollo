@@ -34,6 +34,9 @@
     <ClCompile Include="water_element.cpp">
       <Filter>elements</Filter>
     </ClCompile>
+    <ClCompile Include="air_element.cpp">
+      <Filter>elements</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game_manager.h">
@@ -52,6 +55,9 @@
       <Filter>elements</Filter>
     </ClInclude>
     <ClInclude Include="water_element.h">
+      <Filter>elements</Filter>
+    </ClInclude>
+    <ClInclude Include="air_element.h">
       <Filter>elements</Filter>
     </ClInclude>
   </ItemGroup>

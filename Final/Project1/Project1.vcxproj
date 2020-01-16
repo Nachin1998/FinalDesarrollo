@@ -129,6 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="air_element.cpp" />
     <ClCompile Include="element_manager.cpp" />
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="fire_element.cpp" />
@@ -138,6 +139,7 @@
     <ClCompile Include="water_element.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="air_element.h" />
     <ClInclude Include="element_manager.h" />
     <ClInclude Include="enemy.h" />
     <ClInclude Include="fire_element.h" />

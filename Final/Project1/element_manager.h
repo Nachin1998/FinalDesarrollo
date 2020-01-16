@@ -1,6 +1,8 @@
 #ifndef ELEMENT_MANAGER_H
 #define ELEMENT_MANAGER_H
 
+#include "raylib.h"
+
 namespace MyGame {
 namespace ElementManager {
 	
@@ -18,9 +20,9 @@ namespace ElementManager {
 		third
 	};
 
-
 	extern ElementSelection actualElement;
 	extern Ability currentAbility;
+	extern Vector2 mousePosition;
 
 	void init();
 	void update();

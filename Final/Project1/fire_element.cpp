@@ -15,7 +15,8 @@ using namespace Player;
 	static void fireballUpdate();
 	static void fireballDraw();
 
-	
+	Vector2 mousePosition = GetMousePosition();
+
 	struct Fireball {
 		Vector2 position;
 		float radius;
@@ -75,7 +76,7 @@ using namespace Player;
 			break;
 
 		default:
-			std::cout << "There was an error in the ability selection." << std::endl;
+			std::cout << "There was an error in the ability update selection." << std::endl;
 			break;
 		}
 
@@ -103,27 +104,22 @@ using namespace Player;
 			break;
 
 		default:
-			std::cout << "There was an error in the ability drawing." << std::endl;
+			std::cout << "There was an error in the ability drawing selection." << std::endl;
 			break;
 		}
-
-		/*if (currentAbility == first) 
-		{
-			
-		}*/
 	}
 
 	void fireballInit() {
 		
-		aim.startingPoint.x = avatar.rec.x + avatar.rec.width / 2;;
+		aim.startingPoint.x = avatar.rec.x + avatar.rec.width / 2;
 		aim.startingPoint.y = avatar.rec.y + avatar.rec.height / 2;
 		aim.active = false;
 		aim.thick = 2.0f;
-		aim.aimingPoint = GetMousePosition();
-		aim.color = RED;
+		aim.aimingPoint = GetMousePosition();;
+		aim.color = GREEN;
 
 		fireball.radius = 10.0f;
-		fireball.speed = { 200.0f, 200.0f };
+		fireball.speed = { 500.0f, 500.0f };
 		fireball.active = false;
 		fireball.color = YELLOW;
 
@@ -133,10 +129,24 @@ using namespace Player;
 	void fireballUpdate() {
 
 		aim.active = true;
+		aim.startingPoint.x = avatar.rec.x + avatar.rec.width / 2;
+		aim.startingPoint.y = avatar.rec.y + avatar.rec.height / 2;
+		aim.aimingPoint = GetMousePosition();
 		
-		if (!fireball.active)
+		
+
+		if (fireball.active)
 		{
-			fireball.position = aim.startingPoint;
+			fireball.position.x += fireball.speed.x * GetFrameTime();
+			fireball.position.y -= fireball.speed.y * GetFrameTime();
+
+			fireball.speed.x = 2.0*sin(GetMouseX())*300.0f;
+			fireball.speed.y = 2.0*cos(GetMouseY())*300.0f;
+		}
+		else
+		{
+			fireball.position.x = aim.startingPoint.x;
+			fireball.position.y = aim.startingPoint.y;
 		}
 
 		if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
@@ -144,50 +154,15 @@ using namespace Player;
 			fireball.active = true;
 		}
 
-		/*if (fireball.active)
-		{
-			aim.active = false;
-		}*/
-
-		aim.startingPoint.x = avatar.rec.x + avatar.rec.width / 2;;
-		aim.startingPoint.y = avatar.rec.y + avatar.rec.height / 2;
-		aim.aimingPoint = GetMousePosition();
-
-		if (fireball.active) 
-		{
-			if (fireball.position.x < aim.aimingPoint.x)
-			{
-				fireball.position.x += fireball.speed.x * GetFrameTime();
-			}
-
-			if (fireball.position.x >  aim.aimingPoint.x)
-			{
-				fireball.position.x-= fireball.speed.x * GetFrameTime();
-			}
-
-			if (fireball.position.y <  aim.aimingPoint.y)
-			{
-				fireball.position.y+= fireball.speed.y * GetFrameTime();
-			}
-
-			if (fireball.position.y > aim.aimingPoint.y)
-			{
-				fireball.position.y-= fireball.speed.y * GetFrameTime();
-			}
-
-			/*if (fireball.position.x < positionAuxX)
-			{
-				fireball.position.x += fireball.speed * GetFrameTime();
-			}*/
-		}
+		
 
 		if (fireball.position.x < 0 || fireball.position.x > GetScreenWidth() ||
-			fireball.position.y < 0 || fireball.position.y > GetScreenHeight() ||
-			(fireball.position.x == aim.aimingPoint.x))
+			fireball.position.y < 0 || fireball.position.y > GetScreenHeight())
 		{
 			fireball.active = false;
 			currentAbility = none;
 		}
+		
 	}
 
 	void fireballDraw() {
