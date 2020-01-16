@@ -10,6 +10,7 @@ namespace Player {
 		Rectangle rec;
 		float movementSpeed;
 		float rotation;
+		bool powerActive;
 		bool alive;
 		Color color;
 	};

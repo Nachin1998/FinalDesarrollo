@@ -16,6 +16,7 @@ namespace Player {
 		avatar.rec.height = 30;
 		avatar.rec.x = (GetScreenWidth() / 2) - avatar.rec.width  / 2;
 		avatar.rec.y = GetScreenHeight() / 2 + 200 - avatar.rec.height / 2;
+		avatar.powerActive = false;
 		avatar.movementSpeed = 200.0f;
 		avatar.color = WHITE;
 	}
@@ -34,7 +35,7 @@ namespace Player {
 		rotationDirection.x = mousePosition.x - avatar.rec.x;
 		rotationDirection.y = mousePosition.y - avatar.rec.y;
 
-		rotationAngle = atan2(rotationDirection.y, rotationDirection.x) + 1.57f;
+		rotationAngle = atan2(rotationDirection.y, rotationDirection.x) + GetMousePosition().x;
 
 		avatar.rotation = rotationAngle;
 	}

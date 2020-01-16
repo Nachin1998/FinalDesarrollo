@@ -76,7 +76,7 @@ using namespace Player;
 			break;
 
 		default:
-			std::cout << "There was an error in the ability update selection." << std::endl;
+			std::cout << "There was an error in the fire ability update selection." << std::endl;
 			break;
 		}
 
@@ -104,7 +104,7 @@ using namespace Player;
 			break;
 
 		default:
-			std::cout << "There was an error in the ability drawing selection." << std::endl;
+			std::cout << "There was an error in the fire ability drawing selection." << std::endl;
 			break;
 		}
 	}
@@ -140,8 +140,8 @@ using namespace Player;
 			fireball.position.x += fireball.speed.x * GetFrameTime();
 			fireball.position.y -= fireball.speed.y * GetFrameTime();
 
-			fireball.speed.x = 2.0*sin(GetMouseX())*300.0f;
-			fireball.speed.y = 2.0*cos(GetMouseY())*300.0f;
+			fireball.speed.x = 2.0*sin(avatar.rotation)*300.0f;
+			fireball.speed.y = 2.0*cos(avatar.rotation)*300.0f;
 		}
 		else
 		{
