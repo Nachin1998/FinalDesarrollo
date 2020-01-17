@@ -1,10 +1,10 @@
 #include "element_manager.h"
 
-#include "player.h"
-#include "fire_element.h"
-#include "air_element.h"
-#include "earth_element.h"
-#include "water_element.h"
+#include "entities\player\player.h"
+#include "elements\fire_element\fire_element.h"
+#include "elements\air_element\air_element.h"
+#include "elements\earth_element\earth_element.h"
+#include "elements\water_element\water_element.h"
 
 #include <iostream>
 

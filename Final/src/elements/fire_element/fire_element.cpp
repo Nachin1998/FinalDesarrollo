@@ -3,8 +3,8 @@
 #include <iostream>
 #include <cmath>
 
-#include "element_manager.h"
-#include "player.h"
+#include "elements\element_manager\element_manager.h"
+#include "entities\player\player.h"
 
 namespace MyGame{
 namespace FireElement {

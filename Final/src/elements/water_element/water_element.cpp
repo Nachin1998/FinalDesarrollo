@@ -2,9 +2,9 @@
 
 #include <iostream>
 
-#include "player.h"
+#include "entities\player\player.h"
 
-#include "element_manager.h"
+#include "elements\element_manager\element_manager.h"
 
 namespace MyGame{
 namespace WaterElement {

@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Archivos de recursos">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="entities">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
@@ -31,58 +27,65 @@
     <Filter Include="entities\player">
       <UniqueIdentifier>{885e708b-01c0-41ce-9ed1-41858641d483}</UniqueIdentifier>
     </Filter>
+    <Filter Include="game_manager">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="elements\element_manager">
+      <UniqueIdentifier>{4b30dc07-3573-4087-9836-a8fe5f966fbb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="game_manager.cpp">
-      <Filter>Archivos de recursos</Filter>
-    </ClCompile>
-    <ClCompile Include="element_manager.cpp">
-      <Filter>elements</Filter>
-    </ClCompile>
-    <ClCompile Include="air_element.cpp">
+    <ClCompile Include="..\src\elements\air_element\air_element.cpp">
       <Filter>elements\air_element</Filter>
     </ClCompile>
-    <ClCompile Include="earth_element.cpp">
+    <ClCompile Include="..\src\elements\earth_element\earth_element.cpp">
       <Filter>elements\earth_element</Filter>
     </ClCompile>
-    <ClCompile Include="fire_element.cpp">
+    <ClCompile Include="..\src\elements\fire_element\fire_element.cpp">
       <Filter>elements\fire_element</Filter>
     </ClCompile>
-    <ClCompile Include="water_element.cpp">
+    <ClCompile Include="..\src\elements\water_element\water_element.cpp">
       <Filter>elements\water_element</Filter>
     </ClCompile>
-    <ClCompile Include="enemy.cpp">
-      <Filter>entities\enemy</Filter>
+    <ClCompile Include="..\src\elements\element_manager\element_manager.cpp">
+      <Filter>elements\element_manager</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
+    <ClCompile Include="..\src\game_manager\game_manager.cpp">
+      <Filter>game_manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\entities\player\Player.cpp">
       <Filter>entities\player</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\entities\enemy\enemy.cpp">
+      <Filter>entities\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="game_manager.h">
-      <Filter>Archivos de recursos</Filter>
-    </ClInclude>
-    <ClInclude Include="element_manager.h">
-      <Filter>elements</Filter>
-    </ClInclude>
-    <ClInclude Include="air_element.h">
+    <ClInclude Include="..\src\elements\air_element\air_element.h">
       <Filter>elements\air_element</Filter>
     </ClInclude>
-    <ClInclude Include="earth_element.h">
+    <ClInclude Include="..\src\elements\earth_element\earth_element.h">
       <Filter>elements\earth_element</Filter>
     </ClInclude>
-    <ClInclude Include="fire_element.h">
+    <ClInclude Include="..\src\elements\fire_element\fire_element.h">
       <Filter>elements\fire_element</Filter>
     </ClInclude>
-    <ClInclude Include="water_element.h">
+    <ClInclude Include="..\src\elements\water_element\water_element.h">
       <Filter>elements\water_element</Filter>
     </ClInclude>
-    <ClInclude Include="enemy.h">
-      <Filter>entities\enemy</Filter>
+    <ClInclude Include="..\src\elements\element_manager\element_manager.h">
+      <Filter>elements\element_manager</Filter>
     </ClInclude>
-    <ClInclude Include="player.h">
+    <ClInclude Include="..\src\game_manager\game_manager.h">
+      <Filter>game_manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\entities\player\player.h">
       <Filter>entities\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\entities\enemy\enemy.h">
+      <Filter>entities\enemy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

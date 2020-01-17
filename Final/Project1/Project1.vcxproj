@@ -18,6 +18,27 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\elements\air_element\air_element.cpp" />
+    <ClCompile Include="..\src\elements\earth_element\earth_element.cpp" />
+    <ClCompile Include="..\src\elements\element_manager\element_manager.cpp" />
+    <ClCompile Include="..\src\elements\fire_element\fire_element.cpp" />
+    <ClCompile Include="..\src\elements\water_element\water_element.cpp" />
+    <ClCompile Include="..\src\entities\enemy\enemy.cpp" />
+    <ClCompile Include="..\src\entities\player\Player.cpp" />
+    <ClCompile Include="..\src\game_manager\game_manager.cpp" />
+    <ClCompile Include="..\src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\elements\air_element\air_element.h" />
+    <ClInclude Include="..\src\elements\earth_element\earth_element.h" />
+    <ClInclude Include="..\src\elements\element_manager\element_manager.h" />
+    <ClInclude Include="..\src\elements\fire_element\fire_element.h" />
+    <ClInclude Include="..\src\elements\water_element\water_element.h" />
+    <ClInclude Include="..\src\entities\enemy\enemy.h" />
+    <ClInclude Include="..\src\entities\player\player.h" />
+    <ClInclude Include="..\src\game_manager\game_manager.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{CB5E0D27-069F-4217-A5C6-143374DF638A}</ProjectGuid>
@@ -73,13 +94,17 @@
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)obj\$(Configuration)\</IntDir>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Configuration)\</IntDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib\raylib-2.0.0-Win32-msvc15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src;$(SolutionDir)lib\raylib-2.0.0-Win32-msvc15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\Users\Usuario\Desktop\FinalDesarrollo\Final\lib\raylib-2.0.0-Win32-msvc15\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -103,7 +128,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib\raylib-2.0.0-Win32-msvc15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src;$(SolutionDir)lib\raylib-2.0.0-Win32-msvc15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -128,27 +153,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="air_element.cpp" />
-    <ClCompile Include="earth_element.cpp" />
-    <ClCompile Include="element_manager.cpp" />
-    <ClCompile Include="enemy.cpp" />
-    <ClCompile Include="fire_element.cpp" />
-    <ClCompile Include="game_manager.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="water_element.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="air_element.h" />
-    <ClInclude Include="earth_element.h" />
-    <ClInclude Include="element_manager.h" />
-    <ClInclude Include="enemy.h" />
-    <ClInclude Include="fire_element.h" />
-    <ClInclude Include="game_manager.h" />
-    <ClInclude Include="player.h" />
-    <ClInclude Include="water_element.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

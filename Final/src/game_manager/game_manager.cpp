@@ -1,9 +1,9 @@
 #include "game_manager.h"
 
-#include "player.h"
-#include "element_manager.h"
+#include "elements\element_manager\element_manager.h"
+#include "entities\player\player.h"
 
-#include "enemy.h"
+#include "entities\enemy\enemy.h"
 
 namespace MyGame {
 namespace GameManager {
