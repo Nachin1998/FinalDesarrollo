@@ -4,6 +4,9 @@
 #include "fire_element.h"
 #include "air_element.h"
 #include "earth_element.h"
+#include "water_element.h"
+
+#include <iostream>
 
 #include "raylib.h"
 
@@ -57,17 +60,23 @@ using namespace Player;
 		switch (actualElement)
 		{
 		case Water:
+			WaterElement::update();
 			break;
+
 		case Earth:
 			EarthElement::update();
 			break;
+
 		case Fire:
 			FireElement::update();
 			break;
+
 		case Air:
 			AirElement::update();
 			break;
+
 		default:
+			std::cout << "There was an error in the element manager update selection." << std::endl;
 			break;
 		}
 	}
@@ -76,16 +85,23 @@ using namespace Player;
 		switch (actualElement)
 		{
 		case Water:
+			WaterElement::draw();
 			break;
+
 		case Earth:
 			EarthElement::draw();
 			break;
+
 		case Fire:
 			FireElement::draw();
 			break;
+
 		case Air:
+			AirElement::draw();
 			break;
+
 		default:
+			std::cout << "There was an error in the element manager draw selection." << std::endl;
 			break;
 		}
 	}

@@ -13,58 +13,76 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="elements\air_element">
+      <UniqueIdentifier>{68b9c2dd-6e0e-4414-99a3-28c70a48365d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="elements\water_element">
+      <UniqueIdentifier>{6accea1e-ecdb-4754-8c5c-bfec636fda70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="elements\fire_element">
+      <UniqueIdentifier>{95629ce4-5e18-4bf5-927d-8205bb85b888}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="elements\earth_element">
+      <UniqueIdentifier>{360da1d2-b7f0-4573-a373-f79b8db5d5c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="entities\enemy">
+      <UniqueIdentifier>{b9b811ef-828e-485c-91b9-9b8e0301203f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="entities\player">
+      <UniqueIdentifier>{885e708b-01c0-41ce-9ed1-41858641d483}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="game_manager.cpp">
       <Filter>Archivos de recursos</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>entities</Filter>
-    </ClCompile>
-    <ClCompile Include="enemy.cpp">
-      <Filter>entities</Filter>
-    </ClCompile>
-    <ClCompile Include="fire_element.cpp">
-      <Filter>elements</Filter>
-    </ClCompile>
     <ClCompile Include="element_manager.cpp">
       <Filter>elements</Filter>
     </ClCompile>
-    <ClCompile Include="water_element.cpp">
-      <Filter>elements</Filter>
-    </ClCompile>
     <ClCompile Include="air_element.cpp">
-      <Filter>elements</Filter>
+      <Filter>elements\air_element</Filter>
     </ClCompile>
     <ClCompile Include="earth_element.cpp">
-      <Filter>elements</Filter>
+      <Filter>elements\earth_element</Filter>
+    </ClCompile>
+    <ClCompile Include="fire_element.cpp">
+      <Filter>elements\fire_element</Filter>
+    </ClCompile>
+    <ClCompile Include="water_element.cpp">
+      <Filter>elements\water_element</Filter>
+    </ClCompile>
+    <ClCompile Include="enemy.cpp">
+      <Filter>entities\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>entities\player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game_manager.h">
       <Filter>Archivos de recursos</Filter>
     </ClInclude>
-    <ClInclude Include="player.h">
-      <Filter>entities</Filter>
-    </ClInclude>
-    <ClInclude Include="enemy.h">
-      <Filter>entities</Filter>
-    </ClInclude>
-    <ClInclude Include="fire_element.h">
-      <Filter>elements</Filter>
-    </ClInclude>
     <ClInclude Include="element_manager.h">
       <Filter>elements</Filter>
     </ClInclude>
-    <ClInclude Include="water_element.h">
-      <Filter>elements</Filter>
-    </ClInclude>
     <ClInclude Include="air_element.h">
-      <Filter>elements</Filter>
+      <Filter>elements\air_element</Filter>
     </ClInclude>
     <ClInclude Include="earth_element.h">
-      <Filter>elements</Filter>
+      <Filter>elements\earth_element</Filter>
+    </ClInclude>
+    <ClInclude Include="fire_element.h">
+      <Filter>elements\fire_element</Filter>
+    </ClInclude>
+    <ClInclude Include="water_element.h">
+      <Filter>elements\water_element</Filter>
+    </ClInclude>
+    <ClInclude Include="enemy.h">
+      <Filter>entities\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>entities\player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
