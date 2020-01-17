@@ -1,31 +1,19 @@
-#include "air_element.h"
+#include "earth_element.h"
 
 #include <iostream>
 
-#include "element_manager.h"
 #include "player.h"
+#include "element_manager.h"
 
 namespace MyGame {
-namespace AirElement {
-using namespace ElementManager;
-using namespace Player;
+namespace EarthElement {
+	using namespace ElementManager;
+	using namespace Player;
 
-	static void speedBoostUpdate();
+	static void stoneShieldUpdate();
+	static void stoneShieldDraw();
 
 	float timer = GetFrameTime();
-	Vector2 mousePosition = GetMousePosition();
-
-	struct Aim {
-		Vector2 startingPoint;
-		Vector2 aimingPoint;
-		float thick;
-		bool active;
-		Color color;
-	};
-
-	Ability currentAbility = none;
-
-	Aim aim;
 
 	void init() {
 		timer = 0;
@@ -57,14 +45,14 @@ using namespace Player;
 			break;
 
 		case second:
-			speedBoostUpdate();
 			break;
 
 		case third:
+			stoneShieldUpdate();
 			break;
 
 		default:
-			std::cout << "There was an error in the air ability update selection." << std::endl;
+			std::cout << "There was an error in the earth ability update selection." << std::endl;
 			break;
 		}
 
@@ -88,34 +76,41 @@ using namespace Player;
 			break;
 
 		case third:
+			stoneShieldDraw();
 			break;
 
 		default:
-			std::cout << "There was an error in the air ability drawing selection." << std::endl;
+			std::cout << "There was an error in the earth ability drawing selection." << std::endl;
 			break;
 		}
+
+		
 	}
 
-	void speedBoostUpdate() {
-
-
-		float speedAux = avatar.movementSpeed;
+	void stoneShieldUpdate() {
 		timer += GetFrameTime();
 
-		if (timer < 3.0f)
+		if (timer < 5.0f)
 		{
-			avatar.movementSpeed += 300.0f * GetFrameTime();
+			avatar.shield += 100.0f;
 		}
-		
-		if(timer>3.0f)
+
+		if (timer > 5.0f)
 		{
-			avatar.movementSpeed = 200.0f;
+			avatar.shield = 0;
 			timer = 0;
 			currentAbility = none;
 		}
+
 	}
 
+	void stoneShieldDraw() {
+		timer += GetFrameTime();
 
-
+		if (timer < 5.0f)
+		{
+			DrawRectangleLinesEx(avatar.rec, 3, WHITE);
+		}
+	}
 }
 }

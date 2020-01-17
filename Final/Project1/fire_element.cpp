@@ -7,7 +7,7 @@
 #include "player.h"
 
 namespace MyGame{
-namespace Fire {
+namespace FireElement {
 using namespace ElementManager;
 using namespace Player;
 

@@ -3,13 +3,12 @@
 #include "player.h"
 #include "fire_element.h"
 #include "air_element.h"
+#include "earth_element.h"
 
 #include "raylib.h"
 
 namespace MyGame {
 namespace ElementManager {
-using namespace Fire;
-using namespace Air;
 using namespace Player;
 	
 	static void actualElementUpdate();
@@ -18,7 +17,7 @@ using namespace Player;
 	Ability currentAbility = none;
 
 	void init() {
-		Fire::init();
+		FireElement::init();
 	}
 
 	void update() {
@@ -60,12 +59,13 @@ using namespace Player;
 		case Water:
 			break;
 		case Earth:
+			EarthElement::update();
 			break;
 		case Fire:
-			Fire::update();
+			FireElement::update();
 			break;
 		case Air:
-			Air::update();
+			AirElement::update();
 			break;
 		default:
 			break;
@@ -73,8 +73,20 @@ using namespace Player;
 	}
 
 	void draw() {
-		if (actualElement == Fire) {
-			Fire::draw();
+		switch (actualElement)
+		{
+		case Water:
+			break;
+		case Earth:
+			EarthElement::draw();
+			break;
+		case Fire:
+			FireElement::draw();
+			break;
+		case Air:
+			break;
+		default:
+			break;
 		}
 	}
 }

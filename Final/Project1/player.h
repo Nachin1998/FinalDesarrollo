@@ -8,6 +8,8 @@ namespace Player {
 
 	struct Player {
 		Rectangle rec;
+		float health;
+		float shield;
 		float movementSpeed;
 		float rotation;
 		bool powerActive;

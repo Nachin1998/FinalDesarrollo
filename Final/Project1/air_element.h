@@ -2,7 +2,7 @@
 #define AIR_ELEMENT_H
 
 namespace MyGame {
-namespace Air {
+namespace AirElement {
 	
 	void init();
 	void update();

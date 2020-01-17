@@ -16,6 +16,8 @@ namespace Player {
 		avatar.rec.height = 30;
 		avatar.rec.x = (GetScreenWidth() / 2) - avatar.rec.width  / 2;
 		avatar.rec.y = GetScreenHeight() / 2 + 200 - avatar.rec.height / 2;
+		avatar.health = 100.0f;
+		avatar.shield = 0.0f;
 		avatar.powerActive = false;
 		avatar.movementSpeed = 200.0f;
 		avatar.color = WHITE;
