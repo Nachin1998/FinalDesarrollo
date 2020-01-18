@@ -21,6 +21,7 @@ using namespace Player;
 
 	void init() {
 		FireElement::init();
+		AirElement::init();
 	}
 
 	void update() {

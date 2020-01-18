@@ -19,7 +19,7 @@ namespace GameManager {
 	void runGame();
 }
 }
-#endif // !GAME_H
+#endif
 
 
 

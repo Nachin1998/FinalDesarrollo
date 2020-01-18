@@ -11,9 +11,19 @@ using namespace ElementManager;
 using namespace Player;
 
 	static void speedBoostUpdate();
+	static void areaPushInit();
+	static void areaPushUpdate();
+	static void areaPushDraw();
 
 	float timer = GetFrameTime();
 	Vector2 mousePosition = GetMousePosition();
+
+	struct AirBubble {
+		Vector2 position;
+		float radius;
+		bool active;
+		Color color;
+	};
 
 	struct Aim {
 		Vector2 startingPoint;
@@ -26,9 +36,10 @@ using namespace Player;
 	Ability currentAbility = none;
 
 	Aim aim;
+	AirBubble airBubble;
 
 	void init() {
-		timer = 0;
+		areaPushInit();
 	}
 
 	void update() {
@@ -61,17 +72,13 @@ using namespace Player;
 			break;
 
 		case third:
+			areaPushUpdate();
 			break;
 
 		default:
 			std::cout << "There was an error in the air ability update selection." << std::endl;
 			break;
 		}
-
-		/*if (currentAbility == first)
-		{
-
-		}*/
 	}
 
 	void draw() {
@@ -88,6 +95,7 @@ using namespace Player;
 			break;
 
 		case third:
+			areaPushDraw();
 			break;
 
 		default:
@@ -96,8 +104,16 @@ using namespace Player;
 		}
 	}
 
-	void speedBoostUpdate() {
+	void areaPushInit() {
 
+		airBubble.position.x = avatar.rec.x + avatar.rec.width / 2;
+		airBubble.position.y = avatar.rec.y + avatar.rec.height / 2;
+		airBubble.radius = 25.0f;
+		airBubble.active = false;
+		airBubble.color = SKYBLUE;
+	}
+
+	void speedBoostUpdate() {
 
 		float speedAux = avatar.movementSpeed;
 		timer += GetFrameTime();
@@ -107,11 +123,45 @@ using namespace Player;
 			avatar.movementSpeed += 300.0f * GetFrameTime();
 		}
 		
-		if(timer>3.0f)
+		if(timer > 3.0f)
 		{
 			avatar.movementSpeed = 200.0f;
 			timer = 0;
 			currentAbility = none;
+		}
+	}
+
+	void areaPushUpdate() {
+
+		float timer = 0;
+		
+		if (IsMouseButtonDown(MOUSE_RIGHT_BUTTON))
+		{
+			airBubble.active = true;
+		}
+		else
+		{
+			airBubble.active = false;
+			currentAbility = none;
+		}
+			
+		if (airBubble.active)
+		{
+			airBubble.position.x = avatar.rec.x + avatar.rec.width / 2;
+			airBubble.position.y = avatar.rec.y + avatar.rec.height / 2;
+			airBubble.radius += 25.0F * GetFrameTime();
+		}
+		else
+		{
+			airBubble.radius = 5.0F;
+		}
+	}
+
+	void areaPushDraw() {
+
+		if (airBubble.active)
+		{
+			DrawCircleLines(airBubble.position.x, airBubble.position.y, airBubble.radius, airBubble.color);
 		}
 	}
 
