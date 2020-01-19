@@ -5,6 +5,7 @@
 
 namespace MyGame {
 namespace GameManager {
+
 	extern int screenWidth;
 	extern int screenHeight;
 

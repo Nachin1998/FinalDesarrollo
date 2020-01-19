@@ -7,6 +7,7 @@
 
 namespace MyGame {
 namespace GameManager {
+
 	static void init();
 	static void update();
 	static void draw();

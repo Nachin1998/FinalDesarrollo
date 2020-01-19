@@ -9,10 +9,12 @@ namespace Player {
 	struct Player {
 		Rectangle rec;
 		float health;
+		Vector2 position;
 		float shield;
 		float movementSpeed;
 		float rotation;
 		bool powerActive;
+		bool jump;
 		bool alive;
 		Color color;
 	};

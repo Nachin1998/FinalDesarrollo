@@ -1,7 +1,7 @@
 #include "fire_element.h"
 
 #include <iostream>
-#include <cmath>
+#include <math.h>
 
 #include "elements\element_manager\element_manager.h"
 #include "entities\player\player.h"
@@ -115,7 +115,7 @@ using namespace Player;
 		aim.startingPoint.y = avatar.rec.y + avatar.rec.height / 2;
 		aim.active = false;
 		aim.thick = 2.0f;
-		aim.aimingPoint = GetMousePosition();;
+		aim.aimingPoint = GetMousePosition();
 		aim.color = GREEN;
 
 		fireball.radius = 10.0f;
@@ -128,25 +128,40 @@ using namespace Player;
 	
 	void fireballUpdate() {
 
+		Vector2 lookingDirection;
+		float angle;
+
+		lookingDirection.x = GetMousePosition().x - avatar.position.x;
+		lookingDirection.y = GetMousePosition().y - avatar.position.y;
+
 		aim.active = true;
-		aim.startingPoint.x = avatar.rec.x + avatar.rec.width / 2;
-		aim.startingPoint.y = avatar.rec.y + avatar.rec.height / 2;
-		aim.aimingPoint = GetMousePosition();
-		
-		
+
+		angle = atan2(GetMousePosition().y, GetMousePosition().x) * RAD2DEG - 90.0f;
+
+		avatar.rotation = angle;
+
+		if (aim.active)
+		{
+			aim.startingPoint.x = avatar.rec.x + avatar.rec.width / 2;
+			aim.startingPoint.y = avatar.rec.y + avatar.rec.height / 2;
+			aim.aimingPoint = GetMousePosition();
+		}
 
 		if (fireball.active)
 		{
-			fireball.position.x += fireball.speed.x * GetFrameTime();
-			fireball.position.y -= fireball.speed.y * GetFrameTime();
+			//fireball.position.x += fireball.speed.x * GetFrameTime();
+			//fireball.position.y -= fireball.speed.y * GetFrameTime();
 
-			fireball.speed.x = 2.0*sin(avatar.rotation)*300.0f;
-			fireball.speed.y = 2.0*cos(avatar.rotation)*300.0f;
+			fireball.speed.x = 2.0*sin(angle);
+			fireball.speed.y = 2.0*cos(angle);
+
+			fireball.position.x += fireball.speed.x * GetFrameTime() * 200.0f;
+			fireball.position.y += fireball.speed.y * GetFrameTime() * 200.0f;
 		}
 		else
 		{
-			fireball.position.x = aim.startingPoint.x;
-			fireball.position.y = aim.startingPoint.y;
+			//fireball.position.x = aim.startingPoint.x;
+			//fireball.position.y = aim.startingPoint.y;
 		}
 
 		if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
@@ -159,8 +174,8 @@ using namespace Player;
 		if (fireball.position.x < 0 || fireball.position.x > GetScreenWidth() ||
 			fireball.position.y < 0 || fireball.position.y > GetScreenHeight())
 		{
-			fireball.active = false;
-			currentAbility = none;
+			//fireball.active = false;
+			//currentAbility = none;
 		}
 		
 	}
