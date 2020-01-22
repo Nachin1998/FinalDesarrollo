@@ -14,6 +14,7 @@ namespace Player {
 		float rotation;
 		bool powerActive;
 		bool onGround;
+		bool onAir;
 		bool jumping;
 		bool alive;
 		Color color;

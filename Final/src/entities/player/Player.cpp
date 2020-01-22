@@ -2,6 +2,7 @@
 
 #include "level_manager\level_manager.h"
 
+#include <iostream>
 #include <math.h>
 
 namespace MyGame {
@@ -15,7 +16,8 @@ using namespace LevelManager;
 	Vector2 rotationDirection;
 	Vector2 mousePosition = GetMousePosition();
 	static float rotationAngle = 0.0f;
-	static float jumpForce = 500.0f;
+	static float jumpForce = 800.0f;
+	static float gravity = 100.0f;
 	
 	void init() {
 
@@ -26,9 +28,10 @@ using namespace LevelManager;
 		avatar.health = 100.0f;
 		avatar.shield = 0.0f;
 		avatar.onGround = true;
+		avatar.onAir = false;
 		avatar.jumping = false;
 		avatar.powerActive = false;
-		avatar.movementSpeed = 200.0f;
+		avatar.movementSpeed = 300.0f;
 		avatar.color = GREEN;
 	}
 
@@ -65,6 +68,18 @@ using namespace LevelManager;
 		{
 			avatar.rec.x -= avatar.movementSpeed * GetFrameTime();
 		}
+
+		if (IsKeyDown(KEY_LEFT_SHIFT))
+		{
+			if (avatar.movementSpeed < 600.0f)
+			{
+				avatar.movementSpeed = avatar.movementSpeed * 2;
+			}
+		}
+		else
+		{
+			avatar.movementSpeed = 300.0f;
+		}
 	}
 
 	void jump() {
@@ -78,27 +93,31 @@ using namespace LevelManager;
 		{
 			avatar.rec.y -= jumpForce * GetFrameTime();
 
-			if (avatar.rec.y < 780.0f)
+			if (avatar.rec.y < 1500.0f)
 			{
-				jumpForce -= 500.0f * GetFrameTime();
+				jumpForce -= 1500.0f * GetFrameTime();
 			}
 		}
 
 		for (int i = 0; i < maxPlatforms; i++)
 		{
+
+			if (!CheckCollisionRecs(avatar.rec, platforms[i].rec) && !avatar.jumping)
+			{
+				avatar.rec.y += 100.0f * GetFrameTime();
+			}
+
+			if (CheckCollisionRecs(avatar.rec, platforms[i].rec) && !avatar.jumping)
+			{
+				avatar.rec.y -= jumpForce * GetFrameTime();
+			}
+
 			if (CheckCollisionRecs(avatar.rec, platforms[i].rec))
 			{
 				avatar.jumping = false;
-				jumpForce = 500.0f;
+				jumpForce = 800.0f;
 			}
 		}
 	}
-		
-		
-		/*if (avatar.rec.y >= 600.0f)
-		{
-			avatar.jump = false;
-			jumpForce = 800.0f;
-		}*/
 }
 }
