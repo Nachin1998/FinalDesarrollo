@@ -34,6 +34,9 @@
     <Filter Include="elements\element_manager">
       <UniqueIdentifier>{4b30dc07-3573-4087-9836-a8fe5f966fbb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="level_manager">
+      <UniqueIdentifier>{db3818b3-eb84-43e7-8e2e-5481fd6a606f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\elements\air_element\air_element.cpp">
@@ -61,6 +64,9 @@
       <Filter>entities\enemy</Filter>
     </ClCompile>
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\level_manager\level_manager.cpp">
+      <Filter>level_manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\elements\air_element\air_element.h">
@@ -86,6 +92,9 @@
     </ClInclude>
     <ClInclude Include="..\src\entities\enemy\enemy.h">
       <Filter>entities\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\level_manager\level_manager.h">
+      <Filter>level_manager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

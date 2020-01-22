@@ -6,8 +6,8 @@
 namespace MyGame {
 namespace GameManager {
 
-	extern int screenWidth;
-	extern int screenHeight;
+	const int screenWidth = 1500;
+	const int screenHeight = 800;
 
 	enum ActualScene {
 		Menu,
@@ -21,6 +21,3 @@ namespace GameManager {
 }
 }
 #endif
-
-
-

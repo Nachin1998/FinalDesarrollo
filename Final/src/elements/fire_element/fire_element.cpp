@@ -131,9 +131,6 @@ using namespace Player;
 		Vector2 lookingDirection;
 		float angle;
 
-		lookingDirection.x = GetMousePosition().x - avatar.position.x;
-		lookingDirection.y = GetMousePosition().y - avatar.position.y;
-
 		aim.active = true;
 
 		angle = atan2(GetMousePosition().y, GetMousePosition().x) * RAD2DEG - 90.0f;

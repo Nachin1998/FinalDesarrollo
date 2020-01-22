@@ -27,6 +27,7 @@
     <ClCompile Include="..\src\entities\enemy\enemy.cpp" />
     <ClCompile Include="..\src\entities\player\Player.cpp" />
     <ClCompile Include="..\src\game_manager\game_manager.cpp" />
+    <ClCompile Include="..\src\level_manager\level_manager.cpp" />
     <ClCompile Include="..\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -38,6 +39,7 @@
     <ClInclude Include="..\src\entities\enemy\enemy.h" />
     <ClInclude Include="..\src\entities\player\player.h" />
     <ClInclude Include="..\src\game_manager\game_manager.h" />
+    <ClInclude Include="..\src\level_manager\level_manager.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

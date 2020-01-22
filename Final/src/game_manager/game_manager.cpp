@@ -1,6 +1,7 @@
 #include "game_manager.h"
 
 #include "elements\element_manager\element_manager.h"
+#include "level_manager\level_manager.h"
 #include "entities\player\player.h"
 
 #include "entities\enemy\enemy.h"
@@ -12,9 +13,6 @@ namespace GameManager {
 	static void update();
 	static void draw();
 	static void deInit();
-
-	int screenWidth = 1500;
-	int screenHeight = 800;
 
 	//Music bgMusic;
 
@@ -47,6 +45,7 @@ namespace GameManager {
 		//gameOver::init();
 		Player::init();
 		ElementManager::init();
+		LevelManager::init();
 
 		//Enemy::init();
 		
@@ -66,13 +65,16 @@ namespace GameManager {
 		case Game:
 			Player::update();
 			ElementManager::update();
+			LevelManager::update();
 
 			//Enemy::update();
 			//gameplay::update();
 			break;
+
 		case Gameover:
 			//gameOver::update(endGame);
 			break;
+
 		default:
 			break;
 		}
@@ -90,6 +92,7 @@ namespace GameManager {
 		case Game:
 			Player::draw();
 			ElementManager::draw();
+			LevelManager::draw();
 
 			//Enemy::draw();
 			break;
