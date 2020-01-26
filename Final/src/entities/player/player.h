@@ -20,8 +20,16 @@ namespace Player {
 		Color color;
 	};
 
-	extern Player avatar;
+	struct Bar {
+		Rectangle rec;
+		Color color;
+	};
 
+	extern Player avatar;
+	extern Bar healthBar;
+	extern Bar manaBar;
+	extern Color playerEdge;
+	 
 	void init();
 	void update();
 	void draw();

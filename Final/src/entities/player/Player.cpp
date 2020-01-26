@@ -13,8 +13,11 @@ using namespace LevelManager;
 	static void jump();
 
 	Player avatar;
+	Bar healthBar;
+	Bar manaBar;
 	Vector2 rotationDirection;
 	Vector2 mousePosition = GetMousePosition();
+	static float barWidth = 300.0f;
 	static float rotationAngle = 0.0f;
 	static float jumpForce = 800.0f;
 	static float gravity = 90.0f;
@@ -25,7 +28,7 @@ using namespace LevelManager;
 		avatar.rec.height = 30;
 		avatar.rec.x = GetScreenWidth() / 2 - avatar.rec.width  / 2;
 		avatar.rec.y = (GetScreenHeight() / 2 + 200) - avatar.rec.height / 2;
-		avatar.health = 100.0f;
+		avatar.health = 300.0f;
 		avatar.shield = 0.0f;
 		avatar.onGround = true;
 		avatar.onAir = false;
@@ -33,24 +36,52 @@ using namespace LevelManager;
 		avatar.powerActive = false;
 		avatar.movementSpeed = 500.0f;
 		avatar.color = GREEN;
+
+		healthBar.rec.width = avatar.health;
+		healthBar.rec.height = 11;
+		healthBar.rec.x = 170 - healthBar.rec.width / 2;
+		healthBar.rec.y = 30 - healthBar.rec.height / 2;
+		healthBar.color = GREEN;
 	}
 
 	void update() {
-
-		movement();
-		jump();
-
 		/*rotationDirection.x = GetMousePosition().x - avatar.rec.x;
 		rotationDirection.y = GetMousePosition().y - avatar.rec.y;
 
 		rotationAngle = atan2(rotationDirection.y, rotationDirection.x) + GetMousePosition().x;
 
 		avatar.rotation = rotationAngle;*/
+		
+		healthBar.rec.width = avatar.health;
+		if(IsKeyDown(KEY_Q))
+		{
+			avatar.health -= 15 * GetFrameTime();
+		}
+		movement();
+		jump();
+
+
+		if (avatar.health > 150)
+		{
+			healthBar.color = GREEN;
+		}
+
+		if (avatar.health < 150 && avatar.health > 75)
+		{
+			healthBar.color = YELLOW;
+		}
+
+		if (avatar.health < 75)
+		{
+			healthBar.color = RED;
+		}
 	}
 
 	void draw() {
 
 		DrawRectangleRec(avatar.rec, avatar.color);
+		DrawRectangleRec(healthBar.rec, healthBar.color);
+		DrawRectangleLines(healthBar.rec.x, healthBar.rec.y, barWidth, healthBar.rec.height, WHITE);
 	}
 
 	void movement() {

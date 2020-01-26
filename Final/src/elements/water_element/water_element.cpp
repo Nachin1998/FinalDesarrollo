@@ -90,13 +90,13 @@ using namespace Player;
 		timer += GetFrameTime();
 		auxTimer += GetFrameTime();
 
-		if (avatar.health + healthUp >= 100.0f)
+		if (avatar.health + healthUp >= 300.0f)
 		{
-			healthUp = 100.0f - avatar.health;
+			healthUp = 300.0f - avatar.health;
 		}
 		else
 		{
-			healthUp = 2.5f;
+			healthUp = 10.0f;
 		}
 
 		if (timer <= waitTime)
@@ -124,6 +124,10 @@ using namespace Player;
 		if (timer <= 10.0f)
 		{
 			DrawRectangleLinesEx(avatar.rec, 3, GREEN);
+		}
+		else 
+		{
+			timer = 0;
 		}
 	}
 }
