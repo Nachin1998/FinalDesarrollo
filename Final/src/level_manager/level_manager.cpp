@@ -60,5 +60,28 @@ using namespace Player;
 			DrawRectangleRec(platforms[i].rec, platforms[i].color);
 		}
 	}
+
+	void gravity(Rectangle &rec, float gravity) {
+
+		for (int i = 0; i < maxPlatforms; i++)
+		{
+			if (CheckCollisionRecs(rec, platforms[i].rec))
+			{
+				if ((rec.x + rec.width > platforms[i].rec.x + 1 &&
+					rec.x + rec.width < platforms[i].rec.x + platforms[i].rec.width + rec.width - 1) &&
+					rec.y + rec.height < platforms[i].rec.y + platforms[i].rec.height)
+				{
+					//jumpForce = 800.0f;
+					gravity = 0;
+					avatar.jumping = false;
+				}
+				else
+				{
+					gravity = 90.0f;
+				}
+			}
+		}
+		
+	}
 }
 }

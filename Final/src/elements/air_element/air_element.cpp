@@ -115,17 +115,16 @@ using namespace Player;
 
 	void speedBoostUpdate() {
 
-		float speedAux = avatar.movementSpeed;
 		timer += GetFrameTime();
 
 		if (timer < 3.0f)
 		{
-			avatar.movementSpeed += 300.0f * GetFrameTime();
+			avatar.movementSpeed += 250.0f * GetFrameTime();
 		}
 		
 		if(timer > 3.0f)
 		{
-			avatar.movementSpeed = 200.0f;
+			avatar.movementSpeed = 500.0f;
 			timer = 0;
 			currentAbility = none;
 		}

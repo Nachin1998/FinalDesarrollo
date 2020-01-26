@@ -17,7 +17,7 @@ using namespace LevelManager;
 	Vector2 mousePosition = GetMousePosition();
 	static float rotationAngle = 0.0f;
 	static float jumpForce = 800.0f;
-	static float gravity = 100.0f;
+	static float gravity = 90.0f;
 	
 	void init() {
 
@@ -31,7 +31,7 @@ using namespace LevelManager;
 		avatar.onAir = false;
 		avatar.jumping = false;
 		avatar.powerActive = false;
-		avatar.movementSpeed = 300.0f;
+		avatar.movementSpeed = 500.0f;
 		avatar.color = GREEN;
 	}
 
@@ -41,7 +41,7 @@ using namespace LevelManager;
 		{
 			avatar.rec.y += 0.1;
 		}*/
-		
+
 		movement();
 		jump();
 
@@ -68,18 +68,6 @@ using namespace LevelManager;
 		{
 			avatar.rec.x -= avatar.movementSpeed * GetFrameTime();
 		}
-
-		if (IsKeyDown(KEY_LEFT_SHIFT))
-		{
-			if (avatar.movementSpeed < 600.0f)
-			{
-				avatar.movementSpeed = avatar.movementSpeed * 2;
-			}
-		}
-		else
-		{
-			avatar.movementSpeed = 300.0f;
-		}
 	}
 
 	void jump() {
@@ -99,23 +87,36 @@ using namespace LevelManager;
 			}
 		}
 
+		
+
 		for (int i = 0; i < maxPlatforms; i++)
 		{
-
-			if (!CheckCollisionRecs(avatar.rec, platforms[i].rec) && !avatar.jumping)
+			if (!CheckCollisionRecs(avatar.rec, platforms[i].rec))
 			{
-				avatar.rec.y += 100.0f * GetFrameTime();
+				avatar.rec.y += gravity * GetFrameTime();
 			}
-
-			if (CheckCollisionRecs(avatar.rec, platforms[i].rec) && !avatar.jumping)
+			else
 			{
-				avatar.rec.y -= jumpForce * GetFrameTime();
+				jumpForce = 800.0f;
 			}
+		}
+		
 
+		for (int i = 0; i < maxPlatforms; i++)
+		{
 			if (CheckCollisionRecs(avatar.rec, platforms[i].rec))
 			{
-				avatar.jumping = false;
-				jumpForce = 800.0f;
+				if ((avatar.rec.x + avatar.rec.width > platforms[i].rec.x + 1 &&
+					avatar.rec.x + avatar.rec.width < platforms[i].rec.x + platforms[i].rec.width + avatar.rec.width - 1) &&
+					avatar.rec.y + avatar.rec.height < platforms[i].rec.y + platforms[i].rec.height)
+				{
+					gravity = 0;
+					avatar.jumping = false;
+				}
+				else
+				{
+					gravity = 90.0f;
+				}
 			}
 		}
 	}

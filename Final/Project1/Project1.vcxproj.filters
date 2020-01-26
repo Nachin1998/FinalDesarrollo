@@ -37,6 +37,12 @@
     <Filter Include="level_manager">
       <UniqueIdentifier>{db3818b3-eb84-43e7-8e2e-5481fd6a606f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="utility">
+      <UniqueIdentifier>{afa05a48-ad36-4ac7-b7d7-a9bf67899abf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scenes">
+      <UniqueIdentifier>{2b42688f-5fda-4a4a-b2b5-4ca81d6dd816}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\elements\air_element\air_element.cpp">
@@ -67,6 +73,9 @@
     <ClCompile Include="..\src\level_manager\level_manager.cpp">
       <Filter>level_manager</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\utility\UI.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\elements\air_element\air_element.h">
@@ -95,6 +104,9 @@
     </ClInclude>
     <ClInclude Include="..\src\level_manager\level_manager.h">
       <Filter>level_manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utility\UI.h">
+      <Filter>utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
