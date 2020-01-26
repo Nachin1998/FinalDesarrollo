@@ -37,11 +37,6 @@ using namespace LevelManager;
 
 	void update() {
 
-		/*if (avatar.rec.y / 2 - avatar.rec.height / 2 <= platforms[0].rec.y / 2 - platforms[0].rec.height / 2)
-		{
-			avatar.rec.y += 0.1;
-		}*/
-
 		movement();
 		jump();
 
@@ -56,17 +51,44 @@ using namespace LevelManager;
 	void draw() {
 
 		DrawRectangleRec(avatar.rec, avatar.color);
-		//DrawRectanglePro(avatar.rec, {0,0}, avatar.rotation, avatar.color);
 	}
 
 	void movement() {
-		if (IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT))
+		int mapLimit = 1;
+
+		if (avatar.rec.x + avatar.rec.width < GetScreenWidth() - mapLimit) 
 		{
-			avatar.rec.x += avatar.movementSpeed * GetFrameTime();
+			if (IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT))
+			{
+				avatar.rec.x += avatar.movementSpeed * GetFrameTime();
+			}
 		}
-		if (IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT))
+
+		if (avatar.rec.x > mapLimit)
 		{
-			avatar.rec.x -= avatar.movementSpeed * GetFrameTime();
+			if (IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT))
+			{
+				avatar.rec.x -= avatar.movementSpeed * GetFrameTime();
+			}
+		}
+		
+
+		for (int i = 0; i < maxPlatforms; i++)
+		{
+			if (CheckCollisionRecs(avatar.rec, platforms[i].rec))
+			{
+				if ((avatar.rec.x + avatar.rec.width > platforms[i].rec.x + 1 &&
+					avatar.rec.x + avatar.rec.width < platforms[i].rec.x + platforms[i].rec.width + avatar.rec.width - 1) &&
+					avatar.rec.y + avatar.rec.height + 9.7 < platforms[i].rec.y + platforms[i].rec.height)
+				{
+					gravity = 0;
+					avatar.jumping = false;
+				}
+				else
+				{
+					gravity = 90.0f;
+				}
+			}
 		}
 	}
 
@@ -87,8 +109,6 @@ using namespace LevelManager;
 			}
 		}
 
-		
-
 		for (int i = 0; i < maxPlatforms; i++)
 		{
 			if (!CheckCollisionRecs(avatar.rec, platforms[i].rec))
@@ -98,25 +118,6 @@ using namespace LevelManager;
 			else
 			{
 				jumpForce = 800.0f;
-			}
-		}
-		
-
-		for (int i = 0; i < maxPlatforms; i++)
-		{
-			if (CheckCollisionRecs(avatar.rec, platforms[i].rec))
-			{
-				if ((avatar.rec.x + avatar.rec.width > platforms[i].rec.x + 1 &&
-					avatar.rec.x + avatar.rec.width < platforms[i].rec.x + platforms[i].rec.width + avatar.rec.width - 1) &&
-					avatar.rec.y + avatar.rec.height < platforms[i].rec.y + platforms[i].rec.height)
-				{
-					gravity = 0;
-					avatar.jumping = false;
-				}
-				else
-				{
-					gravity = 90.0f;
-				}
 			}
 		}
 	}

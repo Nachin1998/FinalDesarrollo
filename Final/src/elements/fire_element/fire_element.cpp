@@ -142,15 +142,14 @@ using namespace Player;
 			aim.startingPoint.x = avatar.rec.x + avatar.rec.width / 2;
 			aim.startingPoint.y = avatar.rec.y + avatar.rec.height / 2;
 			aim.aimingPoint = GetMousePosition();
+
+			
 		}
 
 		if (fireball.active)
 		{
 			//fireball.position.x += fireball.speed.x * GetFrameTime();
 			//fireball.position.y -= fireball.speed.y * GetFrameTime();
-
-			fireball.speed.x = 2.0*sin(angle);
-			fireball.speed.y = 2.0*cos(angle);
 
 			fireball.position.x += fireball.speed.x * GetFrameTime() * 200.0f;
 			fireball.position.y += fireball.speed.y * GetFrameTime() * 200.0f;
@@ -171,8 +170,9 @@ using namespace Player;
 		if (fireball.position.x < 0 || fireball.position.x > GetScreenWidth() ||
 			fireball.position.y < 0 || fireball.position.y > GetScreenHeight())
 		{
-			//fireball.active = false;
-			//currentAbility = none;
+			fireball.active = false;
+			aim.active = false;
+			currentAbility = none;
 		}
 		
 	}
