@@ -21,6 +21,8 @@ using namespace Player;
 
 	void init() {
 		FireElement::init();
+		EarthElement::init();
+		WaterElement::init();
 		AirElement::init();
 	}
 

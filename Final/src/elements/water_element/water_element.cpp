@@ -22,12 +22,12 @@ using namespace Player;
 
 		if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && currentAbility == none)
 		{
-			currentAbility = first;
+			//currentAbility = first;
 		}
 
 		if (IsMouseButtonPressed(MOUSE_MIDDLE_BUTTON) && currentAbility == none)
 		{
-			currentAbility = second;
+			//currentAbility = second;
 		}
 
 		if (IsMouseButtonPressed(MOUSE_RIGHT_BUTTON) && currentAbility == none)

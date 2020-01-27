@@ -17,7 +17,7 @@ using namespace LevelManager;
 	Bar manaBar;
 	Vector2 rotationDirection;
 	Vector2 mousePosition = GetMousePosition();
-	static float barWidth = 300.0f;
+	float barWidth = 300;
 	static float rotationAngle = 0.0f;
 	static float jumpForce = 800.0f;
 	static float gravity = 90.0f;
